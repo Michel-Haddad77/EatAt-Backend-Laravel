@@ -15,10 +15,10 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->text('review')->unique();
+            $table->text('review');
             $table->integer('rating');
-            $table->foreignId('user_id');
-            $table->foreignId('restaurant_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('restaurant_id')->constrained();
             $table->tinyInteger('is_pending');
         });
     }

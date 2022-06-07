@@ -19,7 +19,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('location');
             $table->integer('avg_cost');
             $table->string('category');
-            $table->text('picture');
+            $table->text('picture')->nullable();
             $table->text('description');
         });
     }
