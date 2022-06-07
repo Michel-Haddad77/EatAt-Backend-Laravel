@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function signUp(Request $request){
+        //check if the entered email is already in the db
+        $entered_email = $request->email;
+        $existing_user = User::where('email',$entered_email)->get();
+
+        //if the added email exists
+        if(count($existing_user) !== 0){
+            return response()->json([
+                "status" => "Email already exists"
+            ], 200);
+        }
 
         $user = new User;
         $user->fname = $request->fname;
@@ -20,7 +30,6 @@ class UserController extends Controller
         
         return response()->json([
             "status" => "Success",
-            //"resto" => $resto
         ], 200);
         
     }
