@@ -13,10 +13,10 @@ class RestoController extends Controller
     public function addResto(Request $request){
         //check if the entered name is already in the db
         $entered_name = $request->name;
-        $restou = Restaurant::where('name','LIKE',"%$entered_name%")->get();
+        $resto = Restaurant::where('name',$entered_name)->get();
 
         //if the added name exists
-        if($restou != NULL){
+        if(count($resto) !== 0){
             return response()->json([
                 "status" => "Name already exists"
             ], 200);
@@ -33,7 +33,7 @@ class RestoController extends Controller
         
         return response()->json([
             "status" => "Success",
-            "resto" => $restou
+            "resto" => $resto
         ], 200);
         
     }
