@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,10 @@ Route::post('/add_resto', [RestoController::class, 'addResto']);
 Route::get('/restaurants', [RestoController::class, 'getAllRestos']);
 Route::get('/restaurant/{id}', [RestoController::class, 'getRestoById']);
 
+//User routes
+Route::post('/sign_up', [UserController::class, 'signUp']);
+//Route::get('/all_users/{id?}', [UserController::class, 'getAllUsers']);
 
-Route::get('/all_users/{id?}', [UserController::class, 'getAllUsers']);
-Route::post('/register/{user_type_id}', [UserController::class, 'signUp']);
 
 
 
