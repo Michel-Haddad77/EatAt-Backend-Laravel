@@ -21,6 +21,8 @@ Route::get('/restaurants', [RestoController::class, 'getAllRestos']);
 Route::get('/restaurant/{id}', [RestoController::class, 'getRestoById']);
 
 
+Route::get('/all_users/{id?}', [UserController::class, 'getAllUsers']);
+Route::post('/register/{user_type_id}', [UserController::class, 'signUp']);
 
 
 
