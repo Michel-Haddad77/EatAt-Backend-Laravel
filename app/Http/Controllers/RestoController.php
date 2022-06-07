@@ -30,8 +30,19 @@ class RestoController extends Controller
         
         return response()->json([
             "status" => "Success",
-            "data" => $restos
+            "results" => $restos
         ], 200);
     }
+
+    //get a single restaurant by id
+    public function getRestoById($id){
+        $resto = Restaurant::find($id);
+        
+        return response()->json([
+            "status" => "Success",
+            "results" => $resto
+        ], 200);
+    }
+
 
 }
