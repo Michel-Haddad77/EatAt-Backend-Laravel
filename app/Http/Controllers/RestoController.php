@@ -24,4 +24,14 @@ class RestoController extends Controller
         ], 200);
     }
 
+    //Get all restaurants
+    public function getAllRestos(){
+        $restos = Restaurant::all();
+        
+        return response()->json([
+            "status" => "Success",
+            "data" => $restos
+        ], 200);
+    }
+
 }

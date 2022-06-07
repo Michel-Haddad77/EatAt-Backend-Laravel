@@ -16,6 +16,7 @@ use App\Http\Controllers\RestoController;
 */
 
 Route::post('/add_resto', [RestoController::class, 'addResto']);
+Route::get('/restaurants', [RestoController::class, 'getAllRestos']);
 
 
 
