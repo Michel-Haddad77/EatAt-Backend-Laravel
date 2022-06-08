@@ -23,6 +23,7 @@ Route::get('/restaurant/{id}', [RestoController::class, 'getRestoById']);
 
 //User routes
 Route::post('/sign_up', [UserController::class, 'signUp']);
+Route::post('/login', [UserController::class, 'login']);
 //Route::get('/all_users/{id?}', [UserController::class, 'getAllUsers']);
 
 
