@@ -49,5 +49,16 @@ class ReviewController extends Controller
 
     }
 
+    public function restoReviews($resto_id){
+        $reviews = Review::join('users', 'users.id', '=', 'reviews.user_id')
+                           ->where('restaurant_id',$resto_id)->where('is_pending',0)
+                           ->get(['reviews.review','reviews.rating','users.fname','users.lname','users.picture']);
+
+        return response()->json([
+            "status" => "Success",
+            "results" => $reviews,
+        ], 200);
+
+    }
 
 }
