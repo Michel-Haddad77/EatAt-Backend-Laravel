@@ -29,8 +29,11 @@ class UserController extends Controller
         $user->type = 0;
         $user->save();
         
+        $new_user = User::where('email',$entered_email)->first();
+
         return response()->json([
             "status" => "Success",
+            "data" => $new_user
         ], 200);
         
     }
