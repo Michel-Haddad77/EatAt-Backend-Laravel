@@ -54,6 +54,7 @@ class UserController extends Controller
         if (Hash::check($entered_password, $matched_user->password)){
             return response()->json([
                 "status" => "Success",
+                "data" => $matched_user
             ], 200);
         }
 
