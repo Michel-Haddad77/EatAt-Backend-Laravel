@@ -81,4 +81,16 @@ class UserController extends Controller
             "results" => $users
         ], 200);
     }
+
+    //Delete review
+    public function deleteUser(Request $request){
+        $id = $request->id;
+
+        User::find($id)->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
+    }
 }

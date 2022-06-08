@@ -27,6 +27,7 @@ Route::post('/sign_up', [UserController::class, 'signUp']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/{id?}', [UserController::class, 'getUserById']);
 Route::get('/users', [UserController::class, 'getAllUsers']);
+Route::post('/delete-user', [UserController::class, 'deleteUser']);
 
 //Review routes
 Route::post('/add-review', [ReviewController::class, 'addReview']);
