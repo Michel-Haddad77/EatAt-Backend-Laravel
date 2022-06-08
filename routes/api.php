@@ -33,7 +33,7 @@ Route::post('/add-review', [ReviewController::class, 'addReview']);
 Route::post('/delete-review', [ReviewController::class, 'deleteReview']);
 Route::post('/confirm-review', [ReviewController::class, 'confirmReview']);
 Route::get('/restaurant-reviews/{resto_id}', [ReviewController::class, 'restoReviews']);
-
+Route::get('/reviews', [ReviewController::class, 'getAllReviews']);
 
 
 

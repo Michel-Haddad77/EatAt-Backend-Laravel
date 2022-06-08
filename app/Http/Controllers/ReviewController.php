@@ -37,6 +37,7 @@ class ReviewController extends Controller
 
     }
 
+    //confirm a review
     public function confirmReview(Request $request){
         $user_id = $request->user_id;
         $resto_id = $request->resto_id;
@@ -49,10 +50,22 @@ class ReviewController extends Controller
 
     }
 
+    //get all reviews of a specific resto
     public function restoReviews($resto_id){
         $reviews = Review::join('users', 'users.id', '=', 'reviews.user_id')
                            ->where('restaurant_id',$resto_id)->where('is_pending',0)
                            ->get(['reviews.review','reviews.rating','users.fname','users.lname','users.picture']);
+
+        return response()->json([
+            "status" => "Success",
+            "results" => $reviews,
+        ], 200);
+    }
+
+    //get all the reivews
+    public function getAllReviews(){
+        $reviews = Review::join('users', 'users.id', '=', 'reviews.user_id')
+                            ->get(['reviews.review','reviews.rating','users.fname','users.lname','users.picture']);
 
         return response()->json([
             "status" => "Success",
