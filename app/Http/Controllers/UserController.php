@@ -61,4 +61,14 @@ class UserController extends Controller
             "status" => "Email and/or password are incorrect",
         ], 200);
     }
+
+    //get a single user by id
+    public function getUserById($id){
+        $user = User::find($id);
+        
+        return response()->json([
+            "status" => "Success",
+            "results" => $user
+        ], 200);
+    }
 }
