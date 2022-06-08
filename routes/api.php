@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::post('/sign_up', [UserController::class, 'signUp']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/{id?}', [UserController::class, 'getUserById']);
 Route::get('/users', [UserController::class, 'getAllUsers']);
+
+//Review routes
+Route::post('/add-review', [ReviewController::class, 'addReview']);
 
 
 
