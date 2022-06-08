@@ -15,7 +15,7 @@ class ReviewController extends Controller
         $new_review->rating = $request->rating;
         $new_review->user_id = $request->user_id;
         $new_review->restaurant_id = $request->resto_id;
-        $new_review->is_pending = 1;
+        $new_review->is_pending = 1; //review is pending by default
         $new_review->save();
         
         return response()->json([
@@ -29,12 +29,25 @@ class ReviewController extends Controller
         $user_id = $request->user_id;
         $resto_id = $request->resto_id;
 
-        $deleted = Review::where('user_id',$user_id)->where('restaurant_id',$resto_id)->delete();
+        Review::where('user_id',$user_id)->where('restaurant_id',$resto_id)->delete();
 
         return response()->json([
             "status" => "Success",
         ], 200);
 
     }
+
+    public function confirmReview(Request $request){
+        $user_id = $request->user_id;
+        $resto_id = $request->resto_id;
+
+        Review::where('user_id',$user_id)->where('restaurant_id',$resto_id)->update(array('is_pending'=>0));
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
+    }
+
 
 }

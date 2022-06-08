@@ -31,6 +31,7 @@ Route::get('/users', [UserController::class, 'getAllUsers']);
 //Review routes
 Route::post('/add-review', [ReviewController::class, 'addReview']);
 Route::post('/delete-review', [ReviewController::class, 'deleteReview']);
+Route::post('/confirm-review', [ReviewController::class, 'confirmReview']);
 
 
 
