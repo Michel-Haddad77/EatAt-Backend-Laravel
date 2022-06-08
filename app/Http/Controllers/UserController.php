@@ -86,7 +86,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    //Delete review
+    //Delete user
     public function deleteUser(Request $request){
         $id = $request->id;
 
