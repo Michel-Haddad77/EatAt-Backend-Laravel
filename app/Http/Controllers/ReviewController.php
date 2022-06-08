@@ -23,4 +23,18 @@ class ReviewController extends Controller
         ], 200);
         
     }
+
+    //Delete review
+    public function deleteReview(Request $request){
+        $user_id = $request->user_id;
+        $resto_id = $request->resto_id;
+
+        $deleted = Review::where('user_id',$user_id)->where('restaurant_id',$resto_id)->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
+    }
+
 }
